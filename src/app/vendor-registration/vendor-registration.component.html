@@ -1,0 +1,371 @@
+<!-- 
+
+<div class="container">
+
+  <div class="card">
+    <div class=" flex justify-content-center" style="background-color: aqua;">
+      <h2>Vendor Registration Form</h2>
+    </div>
+    <hr>
+    <form [formGroup]="vendorForm" (ngSubmit)="onSubmit()">
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+
+          <label for="gstin">GSTIN Number</label>
+          <input id="gstin" type="text" formControlName="gstin" required />
+
+
+        </div>
+
+        <div class="form-group field col">
+          <label for="confirmGstin">Confirm GSTIN Number</label>
+          <input id="confirmGstin" type="text" formControlName="confirmGstin" required />
+        </div>
+
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="vendorName">Vendor (Trade) Name</label>
+          <input id="vendorName" type="text" formControlName="vendorName" required />
+        </div>
+
+        <div class="form-group field col">
+          <label for="vendorOwnerName">Vendor Owner Name</label>
+          <input id="vendorOwnerName" type="text" formControlName="vendorOwnerName" required />
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="mobile">Mobile</label>
+          <input id="mobile" type="text" formControlName="mobile" required />
+        </div>
+
+        <div class="form-group field col">
+          <label for="email">Email</label>
+          <input id="email" type="email" formControlName="email" required />
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="homeDistrict">Home District</label>
+          <p-dropdown [options]="Districts" formControlName="homeDistrict" optionLabel="name"
+            placeholder="Select a Home District">
+          </p-dropdown>
+
+        </div>
+
+
+        <div class="form-group field col">
+          <label for="workingDistrict">Working District</label>
+          <select id="workingDistrict" formControlName="workingDistrict" required>
+            <option value="Begusarai">Begusarai</option>
+            
+          </select>
+        </div>
+      </div>
+
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="town">Town</label>
+          <input id="town" type="text" formControlName="town" required />
+        </div>
+        <div class="form-group field col">
+          <label for="address">Address</label>
+          <input id="address" type="text" formControlName="address" required />
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="ifsc">IFSC</label>
+          <input id="ifsc" type="text" formControlName="ifsc" required />
+        </div>
+
+        <div class="form-group field col">
+          <label for="bankDetails">Bank Details</label>
+          <select id="bankDetails" formControlName="bankDetails" required>
+            <option value="sbi">SBI</option>
+          </select>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="accountNumber">Account Number</label>
+          <input id="accountNumber" type="text" formControlName="accountNumber" required />
+        </div>
+        <div class="form-group field col">
+          <label for="confirmAccountNumber">Confirm Account Number</label>
+          <input id="confirmAccountNumber" type="text" formControlName="confirmAccountNumber" required />
+        </div>
+
+
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="uploadGstinDoc">Upload GSTIN Doc</label>
+          <input id="uploadGstinDoc" type="file" formControlName="uploadGstinDoc" required />
+        </div>
+      </div>
+      <div class="form-actions">
+      <button type="submit" style="float: inline-start;" [disabled]="">Save</button>
+    </div>
+    </form>
+  </div>
+</div> -->
+
+
+
+<div>
+  <img src=".\assets\egramswaraj_header.jpg" class="img-responsive" style="width: 100%; height: 5x">
+</div>
+<div class="container">
+  <div class="header" style="background-color: blue; padding: 5px;">
+  
+    <h5 style="color: white;">Vendor Registration</h5>
+  </div>
+  
+  <div class="card">
+    <div class="form-header" style="background-color: rgb(209, 56, 56); padding: 5px;">
+      <h4 style="color: white;">Vendor Registration Form</h4>
+    </div>
+    <!-- <hr> -->
+    <form [formGroup]="vendorForm" (ngSubmit)="onSubmit()">
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="gstin">GSTIN Number <span class="required-asterisk">*</span></label>
+          <input id="gstin" type="text" formControlName="gstin" required />
+          <div *ngIf="vendorForm.get('gstin')?.touched && vendorForm.get('gstin')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('gstin')?.errors?.['required']">GSTIN is required.</span>
+          </div>
+        </div>
+        <div class="form-group field col">
+          <label for="confirmGstin">Confirm GSTIN Number <span class="required-asterisk">*</span></label>
+          <input id="confirmGstin" type="text" formControlName="confirmGstin" required />
+          <div *ngIf="vendorForm.get('confirmGstin')?.touched && vendorForm.get('confirmGstin')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('confirmGstin')?.errors?.['required']">Confirm GSTIN is required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="vendorName">Vendor (Trade) Name <span class="required-asterisk">*</span></label>
+          <input id="vendorName" type="text" formControlName="vendorName" required />
+          <div *ngIf="vendorForm.get('vendorName')?.touched && vendorForm.get('vendorName')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('vendorName')?.errors?.['required']">Vendor Name is required.</span>
+          </div>
+        </div>
+        <div class="form-group field col">
+          <label for="vendorOwnerName">Vendor Owner Name <span class="required-asterisk">*</span></label>
+          <input id="vendorOwnerName" type="text" formControlName="vendorOwnerName" required />
+          <div *ngIf="vendorForm.get('vendorOwnerName')?.touched && vendorForm.get('vendorOwnerName')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('vendorOwnerName')?.errors?.['required']">Vendor Owner Name is required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="mobile">Mobile <span class="required-asterisk">*</span></label>
+          <input id="mobile" type="text" formControlName="mobile" required />
+          <div *ngIf="vendorForm.get('mobile')?.touched && vendorForm.get('mobile')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('mobile')?.errors?.['required']">Mobile is required.</span>
+          </div>
+        </div>
+        <div class="form-group field col">
+          <label for="email">Email <span class="required-asterisk">*</span></label>
+          <input id="email" type="email" formControlName="email" required />
+          <div *ngIf="vendorForm.get('email')?.touched && vendorForm.get('email')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('email')?.errors?.['required']">Email is required.</span>
+            <span *ngIf="vendorForm.get('email')?.errors?.['email']">Invalid email format.</span>
+          </div>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="homeDistrict">Home District <span class="required-asterisk">*</span></label>
+          <p-dropdown [options]="Districts" formControlName="homeDistrict" optionLabel="name" placeholder="Select a Home District"></p-dropdown>
+          <div *ngIf="vendorForm.get('homeDistrict')?.touched && vendorForm.get('homeDistrict')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('homeDistrict')?.errors?.['required']">Home District is required.</span>
+          </div>
+        </div>
+        <div class="form-group field col">
+          <label for="workingDistrict">Working District <span class="required-asterisk">*</span></label>
+          <p-dropdown [options]="WorkingDistricts" formControlName="workingDistrict" optionLabel="name" placeholder="Select a Working District"></p-dropdown>
+          <div *ngIf="vendorForm.get('workingDistrict')?.touched && vendorForm.get('workingDistrict')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('workingDistrict')?.errors?.['required']">Working District is required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="town">Town <span class="required-asterisk">*</span></label>
+          <input id="town" type="text" formControlName="town" required />
+          <div *ngIf="vendorForm.get('town')?.touched && vendorForm.get('town')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('town')?.errors?.['required']">town is required.</span>
+          </div>
+        </div>
+        <div class="form-group field col">
+          <label for="address">Address <span class="required-asterisk">*</span></label>
+          <input id="address" type="text" formControlName="address" required />
+          <div *ngIf="vendorForm.get('address')?.touched && vendorForm.get('address')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('address')?.errors?.['required']">Address is required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="ifsc">IFSC <span class="required-asterisk">*</span></label>
+          <input id="ifsc" type="text" formControlName="ifsc" required />
+          <div *ngIf="vendorForm.get('ifsc')?.touched && vendorForm.get('ifsc')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('ifsc')?.errors?.['required']">IFSC is required.</span>
+          </div>
+        </div>
+        <div class="form-group field col">
+          <label for="bankDetails">Bank Details <span class="required-asterisk">*</span></label>
+          <p-dropdown  class="ng-dirty ng-invalid" [showClear]="true" [filter]="true"
+          filterBy="name" [options]="BankDetails" formControlName="bankDetails" optionLabel="name" placeholder="Select a Bank Details"></p-dropdown>
+          <div *ngIf="vendorForm.get('bankDetails')?.touched && vendorForm.get('bankDetails')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('bankDetails')?.errors?.['required']">Bank Details is required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="accountNumber">Account Number <span class="required-asterisk">*</span></label>
+          <input id="accountNumber" type="text" formControlName="accountNumber" required />
+          <div *ngIf="vendorForm.get('accountNumber')?.touched && vendorForm.get('accountNumber')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('accountNumber')?.errors?.['required']">Account Numberis required.</span>
+          </div>
+        </div>
+        <div class="form-group field col">
+          <label for="confirmAccountNumber">Confirm Account Number <span class="required-asterisk">*</span></label>
+          <input id="confirmAccountNumber" type="text" formControlName="confirmAccountNumber" required />
+          <div *ngIf="vendorForm.get('confirmAccountNumber')?.touched && vendorForm.get('confirmAccountNumber')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('confirmAccountNumber')?.errors?.['required']">Confirm Account Number is required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="form-group field col">
+          <label for="uploadGstinDoc">Upload GSTIN Doc <span class="required-asterisk">*</span></label>
+          <input id="uploadGstinDoc" type="file" formControlName="uploadGstinDoc" required />
+          <div *ngIf="vendorForm.get('uploadGstinDoc')?.touched && vendorForm.get('uploadGstinDoc')?.invalid" class="error">
+            <span *ngIf="vendorForm.get('uploadGstinDoc')?.errors?.['required']">GSTIN is required.</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <p-toast ></p-toast>  
+      <p-confirmDialog> </p-confirmDialog>
+        <button type="submit"   [disabled]="vendorForm.invalid">Save</button>
+     
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+<!-- <div>
+  <img src="./assets/egramswaraj_header.jpg" class="img-responsive" style="width: 100%">
+</div>
+<div class="container">
+  <div class="header" style="background-color: blue; padding: 5px;">
+    <h5 style="color: white;">Vendor Registration</h5>
+  </div>
+  <div class="card">
+    <div class="form-header">
+      <h4>Vendor Registration Form</h4>
+    </div>
+    <hr>
+    <form [formGroup]="vendorForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="gstin">GSTIN Number</label>
+          <input id="gstin" type="text" class="form-control" formControlName="gstin" required />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="confirmGstin">Confirm GSTIN Number</label>
+          <input id="confirmGstin" type="text" class="form-control" formControlName="confirmGstin" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="vendorName">Vendor (Trade) Name</label>
+          <input id="vendorName" type="text" class="form-control" formControlName="vendorName" required />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="vendorOwnerName">Vendor Owner Name</label>
+          <input id="vendorOwnerName" type="text" class="form-control" formControlName="vendorOwnerName" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="mobile">Mobile</label>
+          <input id="mobile" type="text" class="form-control" formControlName="mobile" required />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input id="email" type="email" class="form-control" formControlName="email" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="homeDistrict">Home District</label>
+          <select id="homeDistrict" class="form-control" formControlName="homeDistrict" required>
+            <option *ngFor="let district of districts" [value]="district">{{district}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="workingDistrict">Working District</label>
+          <select id="workingDistrict" class="form-control" formControlName="workingDistrict" required>
+            <option value="Begusarai">Begusarai</option>
+            
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="town">Town</label>
+          <input id="town" type="text" class="form-control" formControlName="town" required />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="address">Address</label>
+          <input id="address" type="text" class="form-control" formControlName="address" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="ifsc">IFSC</label>
+          <input id="ifsc" type="text" class="form-control" formControlName="ifsc" required />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="bankDetails">Bank Details</label>
+          <select id="bankDetails" class="form-control" formControlName="bankDetails" required>
+            <option value="sbi">SBI</option>
+            
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="accountNumber">Account Number</label>
+          <input id="accountNumber" type="text" class="form-control" formControlName="accountNumber" required />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="confirmAccountNumber">Confirm Account Number</label>
+          <input id="confirmAccountNumber" type="text" class="form-control" formControlName="confirmAccountNumber" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="uploadGstinDoc">Upload GSTIN Doc</label>
+          <input id="uploadGstinDoc" type="file" class="form-control" formControlName="uploadGstinDoc" required />
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" [disabled]="vendorForm.invalid">Save</button>
+      </div>
+    </form>
+  </div>
+</div>  -->
